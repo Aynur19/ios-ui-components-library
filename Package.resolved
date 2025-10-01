@@ -1,5 +1,4 @@
 {
-  "originHash" : "236d5c6f1fdf15a02cc7f6e160b62ec381a22cc7c70755e56024f9b7b2e9222a",
   "pins" : [
     {
       "identity" : "swift-extensions-library",
@@ -7,9 +6,9 @@
       "location" : "https://github.com/Aynur19/swift-extensions-library.git",
       "state" : {
         "branch" : "main",
-        "revision" : "2ed2e895f1ab4520aa06c851acc3e4ef09b4af71"
+        "revision" : "b06ce7c6497d40093d99b261e9db0abacb506f46"
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }
