@@ -12,6 +12,31 @@ public enum SheetAnchor {
     case bottom
     case leading
     case trailing
+    
+    public var isVertical: Bool {
+        switch self {
+            case .top:      true
+            case .bottom:   true
+            case .leading:  false
+            case .trailing: false
+        }
+    }
+    
+    public var isTop: Bool {
+        self == .top
+    }
+    
+    public var isBottom: Bool {
+        self == .bottom
+    }
+    
+    public var isLeading: Bool {
+        self == .leading
+    }
+    
+    public var isTralling: Bool {
+        self == .trailing
+    }
 }
 
 public enum SheetExpandMode {

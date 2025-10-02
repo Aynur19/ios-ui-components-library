@@ -32,10 +32,12 @@ private struct SUIFlexibleSheetContainerDemoHostView: View {
     )
     
     @State private var color = Color.green
+    @State private var sheetIsVisible = true
     
     var body: some View {
         SUIFlexibleSheetContainer(
             viewModel: viewModel,
+            sheetIsVisible: $sheetIsVisible,
             overlappedContentView: { overlappedView },
             sheetContentView: { sheetView }
         )
@@ -46,13 +48,19 @@ private struct SUIFlexibleSheetContainerDemoHostView: View {
             Spacer()
             HStack(spacing: 64) {
                 Button(
-                    action: { color = Color.blue },
+                    action: {
+                        color = Color.blue
+                        sheetIsVisible.toggle()
+                    },
                     label: { Text("Blue") }
                 )
                 .buttonStyle(.bordered)
                 
                 Button(
-                    action: { color = Color.red },
+                    action: {
+                        color = Color.red
+                        viewModel.update(sheetExpandState: .min)
+                    },
                     label: { Text("Red") }
                 )
                 .buttonStyle(.bordered)

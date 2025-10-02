@@ -30,7 +30,7 @@ public struct SUIFlexibleSheetView<Content: View, ViewModel: SUIFlexibleSheetVie
                 .zIndex(0)
             
             contentView
-                .zIndex(1)
+                .zIndex(1)   
         }
     }
     
