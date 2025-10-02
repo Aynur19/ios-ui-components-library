@@ -36,7 +36,6 @@ public struct SUIFlexibleSheetView<Content: View, ViewModel: SUIFlexibleSheetVie
     
     private var overlappedLayerView: some View {
         Color.clear
-            .ignoresSafeArea()
             .readSize {
                 if viewModel.containerSize == .zero {
                     viewModel.setup(containerSize: $0)
