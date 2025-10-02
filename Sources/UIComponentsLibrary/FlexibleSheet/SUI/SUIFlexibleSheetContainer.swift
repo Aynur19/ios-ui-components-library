@@ -30,29 +30,22 @@ where OverlappedView: View,
     }
     
     public var body: some View {
-        ZStack {
-            overlappedView
-                .zIndex(0)
-            
-            if sheetIsVisible {
-                sheetView
-                    .zIndex(1)
+        overlappedView
+            .overlay(alignment: .bottom) {
+                if sheetIsVisible {
+                    sheetView
+                }
             }
-        }
+            .clipShape(Rectangle())
     }
     
     private var overlappedView: some View {
-        GeometryReader { _ in
-            VStack {
-                overlappedContentView()
-                Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
+        overlappedLayerView
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment.top)
+            .contentShape(Rectangle())
+            .onTapGesture {
+                viewModel.onOverlappedViewTapped()
             }
-        }
-        .background(Color.white.opacity(0.001))
-        .clipShape(Rectangle())
-        .onTapGesture {
-            viewModel.onOverlappedViewTapped()
-        }
     }
     
     @ViewBuilder
@@ -93,6 +86,5 @@ where OverlappedView: View,
             viewModel: viewModel,
             content: { sheetContentView() }
         )
-        .zIndex(1)
     }
 }

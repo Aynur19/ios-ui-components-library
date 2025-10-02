@@ -10,10 +10,11 @@ import SwiftUI
 
 struct SUIFlexibleSheetContainerDemo_Previews: PreviewProvider {
     static var previews: some View {
-        ZStack {
+        VStack {
             SUIFlexibleSheetContainerDemoHostView()
-                .ignoresSafeArea()
+            Spacer(minLength: 100)
         }
+        .ignoresSafeArea()
     }
 }
 
@@ -68,9 +69,8 @@ private struct SUIFlexibleSheetContainerDemoHostView: View {
             .padding(20)
             
             color
-    
-            Spacer()
         }
+        .background(Color.blue)
     }
     
     private func getImageContainerSize(geometry: GeometryProxy) -> CGSize {
